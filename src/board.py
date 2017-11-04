@@ -46,17 +46,15 @@ class Board(object):
         return 0
         
     def _winner_diagonal(self):
-        for index, item in enumerate(self.grid[0]):
-            line = [ self.grid[i][i] for i in range(len(self.grid)) ]
-            if line in [ [1]*len(line), [2]*len(line)]:
-                return line[0]
+        line = [ self.grid[i][i] for i in range(len(self.grid)) ]
+        if line in [ [1]*len(line), [2]*len(line)]:
+            return line[0]
         return 0
         
     def _winner_adiagonal(self):
-        for index, item in enumerate(self.grid[0]):
-            line = [ self.grid[i][len(self.grid)-i-1] for i in range(len(self.grid)) ]
-            if line in [ [1]*len(line), [2]*len(line)]:
-                return line[0]
+        line = [ self.grid[i][len(self.grid)-i-1] for i in range(len(self.grid)) ]
+        if line in [ [1]*len(line), [2]*len(line)]:
+            return line[0]
         return 0
         
             

@@ -1,0 +1,8 @@
+class BasePlayer(object):
+    pass
+
+
+
+
+
+
