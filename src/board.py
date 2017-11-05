@@ -1,14 +1,14 @@
 class Board(object):
     def __init__(self, init_value="000 000 000"):
         self.grid = self._parse_init_value(init_value)
-        
+
     def is_empty(self):
         for line in self.grid:
             for item in line:
                 if item != 0:
                     return False
         return True
-        
+
     def _parse_init_value(self, init_value):
         grid = []
         for str_line in init_value.strip().split(' '):
@@ -18,7 +18,7 @@ class Board(object):
                     line.append(int(char))
                 grid.append(line)
         return grid
-        
+
     def winner(self):
         lines = self._winner_lines()
         if lines != 0:
@@ -31,30 +31,36 @@ class Board(object):
             return diagonal
         adiagonal = self._winner_adiagonal()
         return self._winner_adiagonal()
-        
+
     def _winner_lines(self):
         for line in self.grid:
             if line in [ [1]*len(line), [2]*len(line)]:
                 return line[0]
         return 0
-        
+
     def _winner_columns(self):
         for index, item in enumerate(self.grid[0]):
             line = [ self.grid[i][index] for i in range(len(self.grid)) ]
             if line in [ [1]*len(line), [2]*len(line)]:
                 return line[0]
         return 0
-        
+
     def _winner_diagonal(self):
         line = [ self.grid[i][i] for i in range(len(self.grid)) ]
         if line in [ [1]*len(line), [2]*len(line)]:
             return line[0]
         return 0
-        
+
     def _winner_adiagonal(self):
         line = [ self.grid[i][len(self.grid)-i-1] for i in range(len(self.grid)) ]
         if line in [ [1]*len(line), [2]*len(line)]:
             return line[0]
         return 0
-        
-            
+
+    def available_places(self):
+        result_list = []
+        for line_index, line in enumerate(self.grid):
+            for column_index, place in enumerate(line):
+                if place == 0:
+                    result_list.append((line_index, column_index))
+        return result_list
