@@ -73,6 +73,7 @@ A *Player* class is responsible for holding an AI player strategy.
 ```
 
 #### Player methods and attributes
+
 ##### Player(player_number)
 A player must be instantiated with the number it plays the game
 
@@ -118,7 +119,7 @@ Init function takes the following arguments:
 ### outcome()
 Returns a tuple of length 2, having at the following indexes:
 0. Victories: Tuple of length 3 indicating at the following indexes:
-   0. Number of "The game is tie / ex aequo" games
-   1. Number of "Winner is index 0 of players_class_table" games
-   2. Number of "Winner is index 1 of players_class_table" games
+   - Number of "The game is tie / ex aequo" games
+   - Number of "Winner is index 0 of players_class_table" games
+   - Number of "Winner is index 1 of players_class_table" games
 1. Total number of marks: integer value indicating the tournament total number of times a mark was made on the board (2 per turn)
