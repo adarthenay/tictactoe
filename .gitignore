@@ -101,4 +101,4 @@ ENV/
 .mypy_cache/
 
 # project specific
-src/game.py
+
